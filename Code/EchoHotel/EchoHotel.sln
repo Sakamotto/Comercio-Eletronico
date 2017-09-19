@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoHotel", "EchoHotel\EchoHotel.csproj", "{7E17F4E3-E5D0-4D72-A145-A4AF4E927ACA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoHotel", "EchoHotel\EchoHotel.csproj", "{50C4AC3C-B380-4850-94D7-C64D23600D7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoHotel.Data.Infra", "EchoHotel.Data\EchoHotel.Data.Infra.csproj", "{1A250B0A-947D-4129-BEB8-A873DEDE35C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data", "4 - Data", "{080C9DC3-FC85-4833-84D0-FD203258200D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{D04129B4-0EF6-4002-8E93-558A2D3606E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Infra", "4.1 - Infra", "{2E0D2AFE-7A54-4696-80ED-6C7EDB77F553}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{5572E716-71C8-4603-85BE-4AC0B6D812DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{A4DEA785-6932-415D-B887-4299467702D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{D66570C3-083D-4947-878F-44735C33985C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoHotel.Domain", "EchoHotel.Domain\EchoHotel.Domain.csproj", "{90A941E5-ADC9-4790-9450-9B0543591A57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoHotel.Application", "EchoHotel.Application\EchoHotel.Application.csproj", "{2763B8AA-B344-4A23-A569-904CD388B743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +29,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7E17F4E3-E5D0-4D72-A145-A4AF4E927ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E17F4E3-E5D0-4D72-A145-A4AF4E927ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E17F4E3-E5D0-4D72-A145-A4AF4E927ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E17F4E3-E5D0-4D72-A145-A4AF4E927ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50C4AC3C-B380-4850-94D7-C64D23600D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50C4AC3C-B380-4850-94D7-C64D23600D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50C4AC3C-B380-4850-94D7-C64D23600D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50C4AC3C-B380-4850-94D7-C64D23600D7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A250B0A-947D-4129-BEB8-A873DEDE35C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A250B0A-947D-4129-BEB8-A873DEDE35C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A250B0A-947D-4129-BEB8-A873DEDE35C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A250B0A-947D-4129-BEB8-A873DEDE35C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A941E5-ADC9-4790-9450-9B0543591A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A941E5-ADC9-4790-9450-9B0543591A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A941E5-ADC9-4790-9450-9B0543591A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A941E5-ADC9-4790-9450-9B0543591A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2763B8AA-B344-4A23-A569-904CD388B743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2763B8AA-B344-4A23-A569-904CD388B743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2763B8AA-B344-4A23-A569-904CD388B743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2763B8AA-B344-4A23-A569-904CD388B743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50C4AC3C-B380-4850-94D7-C64D23600D7D} = {D04129B4-0EF6-4002-8E93-558A2D3606E0}
+		{1A250B0A-947D-4129-BEB8-A873DEDE35C0} = {2E0D2AFE-7A54-4696-80ED-6C7EDB77F553}
+		{2E0D2AFE-7A54-4696-80ED-6C7EDB77F553} = {080C9DC3-FC85-4833-84D0-FD203258200D}
+		{90A941E5-ADC9-4790-9450-9B0543591A57} = {D66570C3-083D-4947-878F-44735C33985C}
+		{2763B8AA-B344-4A23-A569-904CD388B743} = {A4DEA785-6932-415D-B887-4299467702D0}
 	EndGlobalSection
 EndGlobal
