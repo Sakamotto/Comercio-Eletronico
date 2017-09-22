@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EchoHotel.App_Start;
+using EchoHotel.AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +20,8 @@ namespace EchoHotel
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            AutoMapperConfig.RegisterMappings();
         }
     }
 }

@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Entities
 {
-    class Compra
+    public class Compra
     {
-        [Key]
         public int Id { get; set; }
         public string CodigoCompra { get; set; } // ???
         public decimal TotalCompra { get; set; }
 
-        public IEnumerable<Reserva> Reservas { get; set; }
+        public virtual ICollection<Reserva> Reservas { get; set; }
 
     }
 }

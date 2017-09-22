@@ -1,24 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Entities
 {
-    class Cliente
+    public class Cliente
     {
-        [Key]
         public int Id { get; set; }
+        [Required]
         public string Nome { get; set; }
+        [Required]
         public string Sobrenome { get; set; }
+        [Required]
         public DateTime DataNascimento { get; set; }
+
+        [Required]
+        [StringLength(11)]
         public string Cpf { get; set; }
+
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
-        public Endereco EnderecoCliente { get; set; }
-        public IEnumerable<Compra> Compras { get; set; }
+        [Required]
+        public virtual Endereco Endereco { get; set; }
+
+        public virtual ICollection<Compra> Compras { get; set; }
 
 
     }

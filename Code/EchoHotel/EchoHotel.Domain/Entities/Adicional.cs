@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Entities
 {
-    class Adicional
+    public class Adicional
     {
-        [Key]
         public int Id { get; set; }
+        [Required]
         public string Nome { get; set; }
+        [Required]
         public decimal Valor { get; set; }
+        [Required]
         public int Tipo { get; set; }
 
     }

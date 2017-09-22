@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Entities
 {
-    class Endereco
+    public class Endereco
     {
+        public int Id { get; set; }
+        [Required]
         public string Cep { get; set; }
         public string Rua { get; set; }
+
+        [Required]
         public string Bairro { get; set; }
+
+        [Required]
         public string Cidade { get; set; }
+        [Required]
         public string Estado { get; set; }
 
         [MaxLength(2)]

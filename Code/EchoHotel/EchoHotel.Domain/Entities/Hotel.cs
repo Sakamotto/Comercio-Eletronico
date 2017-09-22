@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Entities
 {
-    class Hotel
+    public class Hotel
     {
-        [Key]
         public int Id { get; set; }
+        [Required]
         public int QtdAcomodacoes { get; set; }
         public int QtdEstrelas { get; set; }
+
+        [MaxLength(500)]
         public string Descricao { get; set; }
-        public Endereco EnderecoHotel { get; set; }
-        public IEnumerable<Adicional> Adicionais { get; set; }
+        [Required]
+        public virtual Endereco EnderecoHotel { get; set; }
+        public virtual ICollection<Adicional> Adicionais { get; set; }
 
     }
 }
