@@ -1,4 +1,5 @@
 ﻿using EchoHotel.Application.Interfaces;
+using EchoHotel.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,33 +20,36 @@ namespace EchoHotel.Controllers
         }
 
         // GET: api/Cliente
-        public object Get()
+        public HttpResponseMessage Get()
         {
-            var clientes = this.clienteService.GetAll();
-            var res = Json(clientes);
-            return Json(clientes);
-            //return new string[] { "value1", "value2" };
+            var clientes = this.clienteService.GetAll().ToList();
+            return Request.CreateResponse(HttpStatusCode.OK, clientes, "application/json");
         }
 
         // GET: api/Cliente/5
-        public object Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-            return Json(this.clienteService.GetById(id));
+            var cliente = this.clienteService.GetById(id);
+            return Request.CreateResponse(HttpStatusCode.OK, cliente, "application/json");
         }
 
         // POST: api/Cliente
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Cliente cliente)
         {
+            this.clienteService.Add(cliente);
         }
 
         // PUT: api/Cliente/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]Cliente cliente)
         {
+            this.clienteService.Update(cliente);
         }
 
         // DELETE: api/Cliente/5
         public void Delete(int id)
         {
+            Cliente clienteRemover = this.clienteService.GetById(id);
+            this.clienteService.Remove(clienteRemover);
         }
     }
 }

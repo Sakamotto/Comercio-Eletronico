@@ -31,6 +31,8 @@ namespace EchoHotel.Domain.Entities
 
         public virtual ICollection<Compra> Compras { get; set; }
 
+        public bool Ativo { get; set; }
+
 
     }
 }

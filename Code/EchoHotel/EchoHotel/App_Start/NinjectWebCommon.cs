@@ -73,9 +73,13 @@ namespace EchoHotel.App_Start
 
             kernel.Bind(typeof(IServiceBase<>)).To(typeof(ServiceBase<>));
             kernel.Bind<IClienteService>().To<ClienteService>();
+            kernel.Bind<IHotelService>().To<HotelService>();
+            kernel.Bind<IAcomodacaoService>().To<AcomodacaoService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<IClienteRepository>().To<ClienteRepository>();
+            kernel.Bind<IHotelRepository>().To<HotelRepository>();
+            kernel.Bind<IAcomodacaoRepository>().To<AcomodacaoRepository>();
         }        
     }
 }

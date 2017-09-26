@@ -48,12 +48,21 @@
     <Compile Include="Entities\Endereco.cs" />
     <Compile Include="Entities\Hotel.cs" />
     <Compile Include="Entities\Reserva.cs" />
+    <Compile Include="Interfaces\Repositories\IAcomodacaoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAdicionalRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICompraRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IHotelRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IReservaRepository.cs" />
+    <Compile Include="Interfaces\Services\IAcomodacaoService.cs" />
+    <Compile Include="Interfaces\Services\IAdicionalService.cs" />
     <Compile Include="Interfaces\Services\IClienteService.cs" />
+    <Compile Include="Interfaces\Services\IHotelService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Services\HotelService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup />

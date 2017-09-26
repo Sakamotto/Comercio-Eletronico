@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Data.Repositories
 {
-    public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
+    public class RepositoryBase<T> : IDisposable, IRepositoryBase<T> where T : class
     {
 
         protected EchoHotelContext Db = new EchoHotelContext();
 
 
-        public void Add(TEntity obj)
+        public void Add(T obj)
         {
-            Db.Set<TEntity>().Add(obj);
+            Db.Set<T>().Add(obj);
             Db.SaveChanges();
         }
 
@@ -26,23 +26,23 @@ namespace EchoHotel.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            return Db.Set<TEntity>().ToList();
+            return Db.Set<T>().ToList();
         }
 
-        public TEntity GetById(int id)
+        public T GetById(int id)
         {
-            return Db.Set<TEntity>().Find(id);
+            return Db.Set<T>().Find(id);
         }
 
-        public void Remove(TEntity obj)
+        public void Remove(T obj)
         {
-            Db.Set<TEntity>().Remove(obj);
+            Db.Set<T>().Remove(obj);
             Db.SaveChanges();
         }
 
-        public void Update(TEntity obj)
+        public void Update(T obj)
         {
             Db.Entry(obj).State = EntityState.Modified;
             Db.SaveChanges();
