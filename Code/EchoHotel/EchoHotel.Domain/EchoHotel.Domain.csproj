@@ -58,11 +58,16 @@
     <Compile Include="Interfaces\Services\IAcomodacaoService.cs" />
     <Compile Include="Interfaces\Services\IAdicionalService.cs" />
     <Compile Include="Interfaces\Services\IClienteService.cs" />
+    <Compile Include="Interfaces\Services\ICompraService.cs" />
     <Compile Include="Interfaces\Services\IHotelService.cs" />
+    <Compile Include="Interfaces\Services\IReservaService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AcomodacaoService.cs" />
     <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Services\CompraService.cs" />
     <Compile Include="Services\HotelService.cs" />
+    <Compile Include="Services\ReservaService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -24,7 +24,12 @@ namespace EchoHotel.Data.Context
             modelBuilder.Conventions.Remove<OneToOneConstraintIntroductionConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
+            //modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id").Configure(p => p.IsKey());
+
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Entity<Cliente>().HasRequired(c => c.Endereco).WithMany().WillCascadeOnDelete(false);
+            modelBuilder.Entity<Hotel>().HasRequired(c => c.Endereco).WithMany().WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
         }

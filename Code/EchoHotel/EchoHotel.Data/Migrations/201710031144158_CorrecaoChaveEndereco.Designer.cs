@@ -7,13 +7,13 @@ namespace EchoHotel.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class VersaoInicial : IMigrationMetadata
+    public sealed partial class CorrecaoChaveEndereco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(VersaoInicial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CorrecaoChaveEndereco));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709191343187_VersaoInicial"; }
+            get { return "201710031144158_CorrecaoChaveEndereco"; }
         }
         
         string IMigrationMetadata.Source

@@ -10,6 +10,7 @@ namespace EchoHotel.Domain.Entities
 {
     public class Cliente
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
@@ -17,6 +18,8 @@ namespace EchoHotel.Domain.Entities
         public string Sobrenome { get; set; }
         [Required]
         public DateTime DataNascimento { get; set; }
+
+        public int EnderecoId { get; set; }
 
         [Required]
         [StringLength(11)]

@@ -1,18 +1,19 @@
 namespace EchoHotel.Data.Migrations
 {
+    using EchoHotel.Domain.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Context.EchoHotelContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EchoHotel.Data.Context.EchoHotelContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Context.EchoHotelContext context)
+        protected override void Seed(EchoHotel.Data.Context.EchoHotelContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -28,15 +29,11 @@ namespace EchoHotel.Data.Migrations
             //
 
             context.Cliente.AddOrUpdate(
-                new Domain.Entities.Cliente { Nome = "Cristian", Sobrenome="Anterio", Cpf="12312312312", Email="csanterio@gmail.com", DataNascimento= new DateTime(1994, 7, 30),
-                Endereco = new Domain.Entities.Endereco
-                {
-                    Cep ="1212112", Bairro="Cidade Continental", Cidade="Serra", Estado="Espírito Santo", UF="ES"}
-                }
-                
-                );
-
-
+                new Cliente { Nome = "Cristian", Sobrenome = "Anterio", Ativo = true, Email = "csanterio@email.com",
+                    Cpf = "12312312312", DataNascimento = new DateTime(1994, 7, 30), Id = 1,
+                    Endereco = new Endereco { Bairro = "Cidade Continental", Cep = "29123324",
+                        Cidade = "Serra", Estado = "Espírito Santo", Rua = "Rua teste", Id=1}
+                });
         }
     }
 }

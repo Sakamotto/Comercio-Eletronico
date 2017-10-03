@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,15 @@ namespace EchoHotel.Domain.Entities
 
         [MaxLength(500)]
         public string Descricao { get; set; }
+
+        public int EnderecoId { get; set; }
+
         [Required]
-        public virtual Endereco EnderecoHotel { get; set; }
+        public virtual Endereco Endereco { get; set; }
+
         public virtual ICollection<Adicional> Adicionais { get; set; }
+
+        public virtual ICollection<Acomodacao> Acomodacoes { get; set; }
 
     }
 }

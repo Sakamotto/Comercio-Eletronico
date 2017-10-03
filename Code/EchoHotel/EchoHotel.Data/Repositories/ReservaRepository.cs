@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Data.Repositories
 {
-    public class ClienteRepository: RepositoryBase<Cliente>, IClienteRepository
+    public class ReservaRepository: RepositoryBase<Reserva>, IReservaRepository
     {
 
     }

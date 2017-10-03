@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace EchoHotel.Controllers
@@ -23,6 +24,7 @@ namespace EchoHotel.Controllers
         public HttpResponseMessage Get()
         {
             var clientes = this.clienteService.GetAll().ToList();
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, clientes, "application/json");
         }
 
@@ -30,6 +32,7 @@ namespace EchoHotel.Controllers
         public HttpResponseMessage Get(int id)
         {
             var cliente = this.clienteService.GetById(id);
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, cliente, "application/json");
         }
 

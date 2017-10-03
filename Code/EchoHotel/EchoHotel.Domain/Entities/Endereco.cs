@@ -9,6 +9,7 @@ namespace EchoHotel.Domain.Entities
 {
     public class Endereco
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Cep { get; set; }
