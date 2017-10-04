@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace EchoHotel.Controllers
@@ -17,12 +18,14 @@ namespace EchoHotel.Controllers
         public HotelController(IHotelService hotelService)
         {
             this.hotelService = hotelService;
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
         }
 
         // GET: api/Hotel
         public HttpResponseMessage Get()
         {
-            var hoteis = this.hotelService.GetAll();
+            var hoteis = this.hotelService.GetAll().ToList();
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, hoteis, "application/json");
         }
 
@@ -30,7 +33,14 @@ namespace EchoHotel.Controllers
         public HttpResponseMessage Get(int id)
         {
             var hotel = this.hotelService.GetById(id);
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, hotel, "application/json");
+        }
+
+        [ActionName("GetHoteisPorData")]
+        public object Get(DateTime dataInicio, DateTime dataTermino, int guests)
+        {
+            return this.hotelService.GetHoteisPorData(dataInicio, dataTermino, guests);
         }
 
         // POST: api/Hotel

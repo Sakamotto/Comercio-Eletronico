@@ -10,10 +10,11 @@ namespace EchoHotel.Domain.Entities
 {
     public class Acomodacao
     {
+
         [Key]
         public int Id { get; set; }
 
-        public int ReservaId { get; set; }
+        public int? ReservaId { get; set; }
         public int HotelId { get; set; }
 
         [Required]

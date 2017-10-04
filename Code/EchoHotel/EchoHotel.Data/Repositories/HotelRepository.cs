@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Data.Repositories
 {
-    public class HotelRepository: RepositoryBase<Hotel>, IHotelRepository
+    public class HotelRepository : RepositoryBase<Hotel>, IHotelRepository
     {
+
+        public object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int guests)
+        {
+            return this.Db.Hotel.SelectMany(h => h.Acomodacoes).Where(a => a.Valor > 60);
+        }
     }
 }

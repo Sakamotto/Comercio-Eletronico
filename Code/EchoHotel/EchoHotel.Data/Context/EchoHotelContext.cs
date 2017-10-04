@@ -31,6 +31,20 @@ namespace EchoHotel.Data.Context
             modelBuilder.Entity<Cliente>().HasRequired(c => c.Endereco).WithMany().WillCascadeOnDelete(false);
             modelBuilder.Entity<Hotel>().HasRequired(c => c.Endereco).WithMany().WillCascadeOnDelete(false);
 
+            //modelBuilder.Entity<Hotel>().HasMany<Adicional>(h => h.Adicionais).WithMany(a => a.Hoteis)
+            //    .Map(ha => {
+            //        ha.MapLeftKey("HotelId");
+            //        ha.MapRightKey("AdicionalId");
+            //        ha.ToTable("AdicionalHotel");
+            //    });
+
+            //modelBuilder.Entity<Acomodacao>().HasMany<Adicional>(h => h.Adicionais).WithMany(a => a.Acomodacoes)
+            //    .Map(ha => {
+            //        ha.MapLeftKey("AcomodacaoId");
+            //        ha.MapRightKey("AdicionaoId");
+            //        ha.ToTable("AdicionalAcomodacao");
+            //    });
+
             base.OnModelCreating(modelBuilder);
         }
 

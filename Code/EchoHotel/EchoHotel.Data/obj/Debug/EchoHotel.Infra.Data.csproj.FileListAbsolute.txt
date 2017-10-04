@@ -8,8 +8,11 @@ C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Ele
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\bin\Debug\EntityFramework.xml
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Infra.Data.csprojResolveAssemblyReference.cache
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.Migrations.VersaoInicial.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.Migrations.CorrecaoChaveEndereco.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Infra.Data.csproj.GenerateResource.Cache
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.dll
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.pdb
-C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.Migrations.VersaoInicial.resources
-C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Infra.Data.csproj.GenerateResource.Cache
-C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.Migrations.CorrecaoChaveEndereco.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.Migrations.CamposAdicionais.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.Migrations.NullReservaIdEmAcomodacao.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Debug\EchoHotel.Data.Migrations.RemocaoPropHotelAcomodacao.resources

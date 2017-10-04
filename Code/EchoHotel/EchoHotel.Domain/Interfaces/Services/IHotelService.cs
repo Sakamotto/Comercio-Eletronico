@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Interfaces.Services
 {
-    public interface IHotelService: IServiceBase<Hotel>
+    public interface IHotelService : IServiceBase<Hotel>
     {
+        object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int guests);
     }
 }

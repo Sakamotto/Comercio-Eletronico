@@ -17,5 +17,10 @@ namespace EchoHotel.Domain.Services
         {
             this.hotelRepository = repository;
         }
+
+        public object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int guests)
+        {
+            return this.hotelRepository.GetHoteisPorData(dataInicio, dataTermino, guests);
+        }
     }
 }

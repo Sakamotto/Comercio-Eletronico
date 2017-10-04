@@ -18,6 +18,8 @@ namespace EchoHotel.Domain.Entities
         [Required]
         public string Bairro { get; set; }
 
+        public int? Numero { get; set; }
+
         [Required]
         public string Cidade { get; set; }
         [Required]

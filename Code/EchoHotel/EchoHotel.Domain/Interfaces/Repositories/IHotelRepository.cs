@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Interfaces.Repositories
 {
-    public interface IHotelRepository: IRepositoryBase<Hotel>
+    public interface IHotelRepository : IRepositoryBase<Hotel>
     {
+        object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int guests);
     }
 }

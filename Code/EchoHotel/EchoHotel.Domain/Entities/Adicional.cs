@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,9 @@ namespace EchoHotel.Domain.Entities
         [Required]
         public int Tipo { get; set; }
 
+        [IgnoreDataMember]
         public virtual ICollection<Acomodacao> Acomodacoes { get; set; }
+        [IgnoreDataMember]
         public virtual ICollection<Hotel> Hoteis { get; set; }
     }
 }
