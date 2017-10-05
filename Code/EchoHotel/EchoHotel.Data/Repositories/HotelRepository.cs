@@ -13,7 +13,9 @@ namespace EchoHotel.Data.Repositories
 
         public object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int guests)
         {
-            return this.Db.Hotel.SelectMany(h => h.Acomodacoes).Where(a => a.Valor > 60);
+            //return this.Db.Hotel.SelectMany(h => h.Acomodacoes).Where(a => a.Valor > 60);
+            return this.Db.Hotel.SelectMany(h => h.Acomodacoes).
+                Where(a => dataInicio > a.Reserva.DataTermino && dataTermino < a.Reserva.DataInicio);
         }
     }
 }
