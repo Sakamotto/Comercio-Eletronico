@@ -7,9 +7,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace EchoHotel.Controllers
 {
+    [RoutePrefix("api/Hotel")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class HotelController : ApiController
     {
 
@@ -18,14 +21,14 @@ namespace EchoHotel.Controllers
         public HotelController(IHotelService hotelService)
         {
             this.hotelService = hotelService;
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
         }
 
         // GET: api/Hotel
         public HttpResponseMessage Get()
         {
             var hoteis = this.hotelService.GetAll().ToList();
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, hoteis, "application/json");
         }
 
@@ -33,14 +36,18 @@ namespace EchoHotel.Controllers
         public HttpResponseMessage Get(int id)
         {
             var hotel = this.hotelService.GetById(id);
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, hotel, "application/json");
         }
 
+        [Route("GetHoteisPorData")]
         [ActionName("GetHoteisPorData")]
-        public object Get(DateTime dataInicio, DateTime dataTermino, int guests)
+        [HttpGet]
+        public HttpResponseMessage GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int enderecoId, string cidade, int guests)
         {
-            return this.hotelService.GetHoteisPorData(dataInicio, dataTermino, guests);
+            var result = this.hotelService.GetHoteisPorData(dataInicio, dataTermino, enderecoId, cidade, guests);
+            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            return Request.CreateResponse(HttpStatusCode.OK, result, "application/json");
         }
 
         // POST: api/Hotel

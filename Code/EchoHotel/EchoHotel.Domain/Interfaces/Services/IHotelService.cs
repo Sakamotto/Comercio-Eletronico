@@ -9,6 +9,6 @@ namespace EchoHotel.Domain.Interfaces.Services
 {
     public interface IHotelService : IServiceBase<Hotel>
     {
-        object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int guests);
+        object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int enderecoId, string cidade, int guests);
     }
 }

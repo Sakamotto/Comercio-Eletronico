@@ -53,6 +53,7 @@
     <Compile Include="Interfaces\Repositories\IAdicionalRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICompraRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEnderecoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IHotelRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repositories\IReservaRepository.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Interfaces\Services\IAdicionalService.cs" />
     <Compile Include="Interfaces\Services\IClienteService.cs" />
     <Compile Include="Interfaces\Services\ICompraService.cs" />
+    <Compile Include="Interfaces\Services\IEnderecoService.cs" />
     <Compile Include="Interfaces\Services\IHotelService.cs" />
     <Compile Include="Interfaces\Services\IReservaService.cs" />
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
@@ -67,9 +69,11 @@
     <Compile Include="Services\AcomodacaoService.cs" />
     <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\CompraService.cs" />
+    <Compile Include="Services\EnderecoService.cs" />
     <Compile Include="Services\HotelService.cs" />
     <Compile Include="Services\ReservaService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Shared\CompraFinalizadaShared.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

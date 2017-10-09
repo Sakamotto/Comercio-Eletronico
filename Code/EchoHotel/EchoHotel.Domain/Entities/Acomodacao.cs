@@ -14,7 +14,7 @@ namespace EchoHotel.Domain.Entities
         [Key]
         public int Id { get; set; }
 
-        public int? ReservaId { get; set; }
+        //public int? ReservaId { get; set; }
         public int HotelId { get; set; }
 
         [Required]
@@ -29,7 +29,7 @@ namespace EchoHotel.Domain.Entities
 
         public virtual ICollection<Adicional> Adicionais { get; set; }
 
-        public virtual Reserva Reserva { get; set; }
+        public virtual ICollection<Reserva> Reservas { get; set; }
         public virtual Hotel Hotel { get; set; }
 
     }

@@ -9,6 +9,6 @@ namespace EchoHotel.Domain.Interfaces.Repositories
 {
     public interface IHotelRepository : IRepositoryBase<Hotel>
     {
-        object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int guests);
+        object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int enderecoId, string cidade, int guests);
     }
 }

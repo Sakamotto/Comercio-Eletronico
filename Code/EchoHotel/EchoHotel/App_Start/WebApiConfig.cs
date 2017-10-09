@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace EchoHotel
@@ -11,6 +12,8 @@ namespace EchoHotel
         {
             // Serviços e configuração da API da Web
 
+            config.EnableCors();
+
             // Rotas da API da Web
             config.MapHttpAttributeRoutes();
 
@@ -19,6 +22,10 @@ namespace EchoHotel
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Formatters.Clear();
+            config.Formatters.Add(new JsonMediaTypeFormatter());
+            config.Formatters.Add(new XmlMediaTypeFormatter());
         }
     }
 }

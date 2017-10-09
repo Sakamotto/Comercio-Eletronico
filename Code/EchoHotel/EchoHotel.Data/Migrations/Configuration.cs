@@ -10,7 +10,7 @@ namespace EchoHotel.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(EchoHotel.Data.Context.EchoHotelContext context)
