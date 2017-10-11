@@ -29,7 +29,7 @@ namespace EchoHotel.Domain.Entities
 
         public virtual ICollection<Adicional> Adicionais { get; set; }
 
-        public virtual ICollection<Reserva> Reservas { get; set; }
+        //public virtual ICollection<Reserva> Reservas { get; set; }
         public virtual Hotel Hotel { get; set; }
 
     }

@@ -25,9 +25,11 @@ namespace EchoHotel.Controllers
 
         [Route("FinalizarCompra")]
         [HttpPost]
-        public object FinalizarCompra(List<CompraFinalizadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino)
+        public object FinalizarCompra(CompraFinalizadaSharedViewModel reservas)
         {
-            return this._reservaService.FinalizarCompra(reservas, clienteId, dataInicio, dataTermino);
+            //var res = reservas.Content.ReadAsAsync<ReservaSimplificadaShared>().Result;
+            //return new { } ;
+            return this._reservaService.FinalizarCompra(reservas.reservas, 1, reservas.DataInicio, reservas.DataTermino); //[FromUri]CompraFinalizadaSharedViewModel
         }
 
         // GET: api/Reserva

@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Shared
 {
-    public class CompraFinalizadaShared
+    public class ReservaSimplificadaShared
     {
         public int AcomodacaoId { get; set; }
-        //public string CodigoCompra { get; set; }
-        //public int ClienteId { get; set; }
-        //public decimal TotalCompra { get; set; } // acho que não é necessário
         public decimal Valor { get; set; }
         public string CodigoLocacao { get; set; }
         public DateTime DataInicio { get; set; }

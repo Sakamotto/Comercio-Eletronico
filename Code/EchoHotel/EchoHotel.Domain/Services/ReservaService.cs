@@ -19,7 +19,7 @@ namespace EchoHotel.Domain.Services
             this._repository = repository;
         }
 
-        public object FinalizarCompra(List<CompraFinalizadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino)
+        public object FinalizarCompra(List<ReservaSimplificadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino)
         {
             return this._repository.FinalizarCompra(reservas, clienteId, dataInicio, dataTermino);
         }

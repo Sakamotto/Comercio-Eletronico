@@ -10,6 +10,6 @@ namespace EchoHotel.Domain.Interfaces.Repositories
 {
     public interface IReservaRepository : IRepositoryBase<Reserva>
     {
-        object FinalizarCompra(List<CompraFinalizadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino);
+        object FinalizarCompra(List<ReservaSimplificadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino);
     }
 }

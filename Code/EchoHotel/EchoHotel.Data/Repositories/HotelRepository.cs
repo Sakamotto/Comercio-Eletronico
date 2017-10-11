@@ -33,7 +33,7 @@ namespace EchoHotel.Data.Repositories
 
                     FROM Hotel h
                     INNER JOIN Acomodacao a ON(h.Id = a.HotelId)
-                    LEFT JOIN Reserva r ON(r.Id = a.ReservaId) and 
+                    LEFT JOIN Reserva r ON(r.AcomodacaoId = a.Id) and 
 	                    (@dataInicio is null or r.DataInicio < @dataInicio) and
 	                    (@dataTermino is null or r.DataTermino > @dataTermino)
 

@@ -1,14 +1,14 @@
 ﻿using EchoHotel.Domain.Entities;
+using EchoHotel.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EchoHotel.Domain.Interfaces.Repositories
+namespace EchoHotel.Data.Repositories
 {
-    public interface ICompraRepository:IRepositoryBase<Compra>
+    public class CompraRepository: RepositoryBase<Compra>, ICompraRepository
     {
-
     }
 }

@@ -11,32 +11,42 @@ namespace EchoHotel.Data.Repositories
 {
     public class ReservaRepository : RepositoryBase<Reserva>, IReservaRepository
     {
-        public object FinalizarCompra(List<CompraFinalizadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino)
+        private readonly IClienteRepository _clienteRepository;
+        private readonly IAcomodacaoRepository _acomodacaoRepository;
+        private readonly ICompraRepository _compraRepository;
+        public ReservaRepository(
+            IClienteRepository clienteRepository, 
+            IAcomodacaoRepository acomodacaoRepository,
+            ICompraRepository compraRepository)
         {
-            var clienteRepository = new ClienteRepository();
-            
+            this._clienteRepository = clienteRepository;
+            this._acomodacaoRepository = acomodacaoRepository;
+            this._compraRepository = compraRepository;
+        }
+
+        public object FinalizarCompra(List<ReservaSimplificadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino)
+        {
             // Primeiro criamos inserimos a compra ...
             var compra = new Compra();
             var totalCompra = reservas.Sum(r => r.Valor);
             var reservasAdicionadas = new List<Reserva>();
 
-            compra.Cliente = clienteRepository.GetById(clienteId);
+            compra.Cliente = _clienteRepository.GetById(clienteId);
             compra.ClienteId = clienteId;
             compra.CodigoCompra = Guid.NewGuid().ToString();
             compra.TotalCompra = totalCompra;
 
             try
             {
-                var compraAdicionada = this.Db.Compra.Add(compra);
+                //this._compraRepository.Add(compra);
+                var compraAdicionada = this.Db.Compra.Add(compra);  //_compraRepository.Add(compra); //this.Db.Compra.Add(compra);
                 this.Db.SaveChanges();
 
                 foreach (var reserva in reservas)
                 {
                     var novaReserva = new Reserva();
-                    var acomodacao = new AcomodacaoRepository();
-                    var listaAcomodacoes = new List<Acomodacao>();
-                    listaAcomodacoes.Add(acomodacao.GetById(reserva.AcomodacaoId));
-                    novaReserva.Acomodacoes = listaAcomodacoes;
+                    novaReserva.Acomodacao = _acomodacaoRepository.GetById(reserva.AcomodacaoId);
+                    novaReserva.AcomodacaoId = reserva.AcomodacaoId;
                     novaReserva.DataInicio = dataInicio;
                     novaReserva.DataTermino = dataTermino;
                     novaReserva.Ativa = true;
@@ -46,7 +56,6 @@ namespace EchoHotel.Data.Repositories
 
                     var tempReserva = this.Db.Reserva.Add(novaReserva);
                     this.Db.SaveChanges();
-                    //novaReserva.Com
                 }
             }
             catch (Exception e)

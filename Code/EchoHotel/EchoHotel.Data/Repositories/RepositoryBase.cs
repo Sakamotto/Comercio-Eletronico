@@ -14,7 +14,6 @@ namespace EchoHotel.Data.Repositories
 
         protected EchoHotelContext Db = new EchoHotelContext();
 
-
         public void Add(T obj)
         {
             Db.Set<T>().Add(obj);

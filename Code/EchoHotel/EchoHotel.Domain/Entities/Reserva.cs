@@ -15,6 +15,7 @@ namespace EchoHotel.Domain.Entities
         public int Id { get; set; }
 
         public int CompraId { get; set; }
+        public int AcomodacaoId { get; set; }
 
         public decimal Valor { get; set; }
         public string CodigoLocacao { get; set; }
@@ -26,8 +27,10 @@ namespace EchoHotel.Domain.Entities
         [Required]
         public bool Ativa { get; set; }
 
-        [Required]
-        public virtual ICollection<Acomodacao> Acomodacoes { get; set; }
+        //[Required]
+        //public virtual ICollection<Acomodacao> Acomodacoes { get; set; }
+
+        public virtual Acomodacao Acomodacao { get; set; }
 
         [Required]
         public virtual Compra Compra { get; set; }
