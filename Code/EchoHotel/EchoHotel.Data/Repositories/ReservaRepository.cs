@@ -14,6 +14,7 @@ namespace EchoHotel.Data.Repositories
         private readonly IClienteRepository _clienteRepository;
         private readonly IAcomodacaoRepository _acomodacaoRepository;
         private readonly ICompraRepository _compraRepository;
+
         public ReservaRepository(
             IClienteRepository clienteRepository, 
             IAcomodacaoRepository acomodacaoRepository,
@@ -39,8 +40,8 @@ namespace EchoHotel.Data.Repositories
             try
             {
                 //this._compraRepository.Add(compra);
-                var compraAdicionada = this.Db.Compra.Add(compra);  //_compraRepository.Add(compra); //this.Db.Compra.Add(compra);
-                this.Db.SaveChanges();
+                var compraAdicionada = this._compraRepository.Add(compra);  //_compraRepository.Add(compra); //this.Db.Compra.Add(compra);
+                //this.Db.SaveChanges();
 
                 foreach (var reserva in reservas)
                 {
@@ -54,8 +55,8 @@ namespace EchoHotel.Data.Repositories
                     novaReserva.Compra = compraAdicionada;
                     novaReserva.Valor = reserva.Valor;
 
-                    var tempReserva = this.Db.Reserva.Add(novaReserva);
-                    this.Db.SaveChanges();
+                    var tempReserva = this.GetContext().Set<Reserva>().Add(novaReserva);
+                    //this.Db.SaveChanges();
                 }
             }
             catch (Exception e)

@@ -12,12 +12,26 @@ namespace EchoHotel.Data.Repositories
     public class RepositoryBase<T> : IDisposable, IRepositoryBase<T> where T : class
     {
 
-        protected EchoHotelContext Db = new EchoHotelContext();
+        //protected EchoHotelContext Db;
 
-        public void Add(T obj)
+        //public RepositoryBase()
+        //{
+        //    this.Db = new EchoHotelContext();
+        //}
+
+        protected DbContext GetContext()
         {
-            Db.Set<T>().Add(obj);
-            Db.SaveChanges();
+            return new EchoHotelContext();
+        }
+
+        public T Add(T obj)
+        {
+            using (var context = this.GetContext())
+            {
+                T retorno = context.Set<T>().Add(obj);
+                context.SaveChanges();
+                return retorno;
+            }
         }
 
         public void Dispose()
@@ -27,24 +41,44 @@ namespace EchoHotel.Data.Repositories
 
         public IEnumerable<T> GetAll()
         {
-            return Db.Set<T>().ToList();
+            using (var context = this.GetContext())
+            {
+                return context.Set<T>().ToList();
+            }
         }
 
         public T GetById(int id)
         {
-            return Db.Set<T>().Find(id);
+            using (var context = this.GetContext())
+            {
+                return context.Set<T>().Find(id);
+            }
         }
 
         public void Remove(T obj)
         {
-            Db.Set<T>().Remove(obj);
-            Db.SaveChanges();
+            using (var context = this.GetContext())
+            {
+                context.Set<T>().Remove(obj);
+                context.SaveChanges();
+            }
         }
 
         public void Update(T obj)
         {
-            Db.Entry(obj).State = EntityState.Modified;
-            Db.SaveChanges();
+            using (var context = this.GetContext())
+            {
+                context.Entry(obj).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        public int SaveChanges()
+        {
+            using (var context = this.GetContext())
+            {
+                return context.SaveChanges();
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,10 +30,11 @@ namespace EchoHotel.Domain.Entities
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
-        public virtual Endereco Endereco { get; set; }
+        //[Required]
+        //[IgnoreDataMember]
+        public Endereco Endereco { get; set; }
 
-        public virtual ICollection<Compra> Compras { get; set; }
+        public ICollection<Compra> Compras { get; set; }
 
         public bool Ativo { get; set; }
 

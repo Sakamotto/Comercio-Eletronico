@@ -27,12 +27,8 @@ namespace EchoHotel.Domain.Entities
         [Required]
         public bool Ativa { get; set; }
 
-        //[Required]
-        //public virtual ICollection<Acomodacao> Acomodacoes { get; set; }
+        public Acomodacao Acomodacao { get; set; }
 
-        public virtual Acomodacao Acomodacao { get; set; }
-
-        [Required]
         public virtual Compra Compra { get; set; }
     }
 }

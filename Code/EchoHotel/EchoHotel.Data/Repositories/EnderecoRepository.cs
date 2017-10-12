@@ -12,7 +12,7 @@ namespace EchoHotel.Data.Repositories
     {
         public IEnumerable<object> GetCidades()
         {
-            return this.Db.Database.SqlQuery<Endereco>("SELEC * FROM ENDERECO");
+            return this.GetContext().Database.SqlQuery<Endereco>("SELEC * FROM ENDERECO");
         }
     }
 }
