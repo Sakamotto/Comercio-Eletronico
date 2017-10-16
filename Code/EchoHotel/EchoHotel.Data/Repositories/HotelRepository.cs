@@ -12,11 +12,11 @@ namespace EchoHotel.Data.Repositories
     public class HotelRepository : RepositoryBase<Hotel>, IHotelRepository
     {
 
-        public object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int enderecoId, string cidade, int guests)
+        public object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int? enderecoId, string cidade, int guests)
         {
             //return this.Db.Hotel.SelectMany(h => h.Acomodacoes).Where(a => a.Valor > 60);
             var result = this.GetContext().Database.SqlQuery<Retorno>(@"
-                    SELECT
+                    SELECT distinct a.Id as AcomodacaoId,
 	                    h.Id as HotelId,
 	                    h.QtdAcomodacoes,
 	                    h.Descricao,
@@ -24,7 +24,6 @@ namespace EchoHotel.Data.Repositories
 	                    a.Valor,
 	                    a.Capacidade,
 	                    a.Descricao,
-	                    a.Id as AcomodacaoId,
 	                    e.Cep,
 	                    e.Rua,
 	                    e.Bairro,
@@ -33,16 +32,14 @@ namespace EchoHotel.Data.Repositories
 
                     FROM Hotel h
                     INNER JOIN Acomodacao a ON(h.Id = a.HotelId)
-                    LEFT JOIN Reserva r ON(r.AcomodacaoId = a.Id) and 
-	                    (@dataInicio is null or r.DataInicio < @dataInicio) and
-	                    (@dataTermino is null or r.DataTermino > @dataTermino)
+                    LEFT JOIN Reserva r ON(a.Id = r.AcomodacaoId)
 
                     INNER JOIN Endereco e ON(e.Id = h.EnderecoId)
 
                     WHERE (@cidade is null or e.Cidade like '%' + @cidade + '%') and
                     (@guests is null or a.Capacidade >= @guests) and 
-	(@dataInicio is null or r.DataInicio is null or r.DataInicio < @dataInicio) and
-	(@dataTermino is null or r.DataTermino is null or r.DataTermino > @dataTermino)",
+                    ( (@dataInicio is null or r.DataInicio is null or (r.DataInicio < @dataInicio and r.DataTermino < @dataInicio)) or
+                    (@dataTermino is null or r.DataTermino is null or (r.DataInicio > @dataTermino and r.DataTermino > @dataTermino )) )",
                     new SqlParameter("@dataInicio", dataInicio),
                     new SqlParameter("@dataTermino", dataTermino),
                     new SqlParameter("@enderecoId", enderecoId),

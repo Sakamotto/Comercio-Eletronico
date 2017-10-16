@@ -30,5 +30,19 @@ namespace EchoHotel.Domain.Entities
         public Acomodacao Acomodacao { get; set; }
 
         public virtual Compra Compra { get; set; }
+
+        public bool isAtiva()
+        {
+            return this.DataTermino < DateTime.Now;
+        }
+
+        public bool Conflitante(DateTime dataInicio, DateTime dataTermino)
+        {
+            return ((dataInicio < this.DataInicio) && (dataTermino < this.DataTermino)) ||
+                (dataInicio == this.DataInicio && dataTermino == this.DataTermino) ||
+                (dataInicio > this.DataInicio && dataTermino > this.DataTermino);
+        }
+
+
     }
 }
