@@ -49,6 +49,7 @@
     <Compile Include="Entities\Endereco.cs" />
     <Compile Include="Entities\Hotel.cs" />
     <Compile Include="Entities\Reserva.cs" />
+    <Compile Include="Integracao\Response.cs" />
     <Compile Include="Interfaces\Repositories\IAcomodacaoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAdicionalRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
@@ -73,7 +74,9 @@
     <Compile Include="Services\HotelService.cs" />
     <Compile Include="Services\ReservaService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Integracao\Carro.cs" />
     <Compile Include="Shared\CompraFinalizadaSharedViewModel.cs" />
+    <Compile Include="Integracao\RequestCarrosDisponiveis.cs" />
     <Compile Include="Shared\ReservaSimplificadaShared.cs" />
   </ItemGroup>
   <ItemGroup />

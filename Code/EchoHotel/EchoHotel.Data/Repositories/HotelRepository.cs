@@ -14,7 +14,6 @@ namespace EchoHotel.Data.Repositories
 
         public object GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int? enderecoId, string cidade, int guests)
         {
-            //return this.Db.Hotel.SelectMany(h => h.Acomodacoes).Where(a => a.Valor > 60);
             var result = this.GetContext().Database.SqlQuery<Retorno>(@"
                     SELECT distinct a.Id as AcomodacaoId,
 	                    h.Id as HotelId,
@@ -31,15 +30,23 @@ namespace EchoHotel.Data.Repositories
 	                    e.Numero
 
                     FROM Hotel h
-                    INNER JOIN Acomodacao a ON(h.Id = a.HotelId)
-                    LEFT JOIN Reserva r ON(a.Id = r.AcomodacaoId)
-
                     INNER JOIN Endereco e ON(e.Id = h.EnderecoId)
+                    INNER JOIN Acomodacao a ON(h.Id = a.HotelId)
+                    LEFT JOIN Reserva r ON(a.Id = r.AcomodacaoId) and
+	                    (	(r.DataInicio is null or (@dataInicio between r.DataInicio and r.DataTermino)) or
+		                    (r.DataTermino is null or (@dataTermino between r.DataInicio and r.DataTermino)) or
+		                    (r.DataInicio is null or (r.DataInicio between  @dataInicio and @dataTermino)) or
+		                    (r.DataTermino is null or (r.DataTermino between  @dataInicio and @dataTermino))
+	                    )
 
-                    WHERE (@cidade is null or e.Cidade like '%' + @cidade + '%') and
-                    (@guests is null or a.Capacidade >= @guests) and 
-                    ( (@dataInicio is null or r.DataInicio is null or (r.DataInicio < @dataInicio and r.DataTermino < @dataInicio)) or
-                    (@dataTermino is null or r.DataTermino is null or (r.DataInicio > @dataTermino and r.DataTermino > @dataTermino )) )",
+                    WHERE
+	                    (@cidade is null or e.Cidade like '%' + @cidade + '%') and
+	                    (@guests is null or a.Capacidade >= @guests)
+	                    and
+	                    (
+		                    ( (r.DataInicio is null or (r.DataInicio < @dataInicio and r.DataTermino < @dataInicio)) or
+		                    (r.DataTermino is null or (r.DataInicio > @dataTermino and r.DataTermino > @dataTermino )) )		
+	                    )",
                     new SqlParameter("@dataInicio", dataInicio),
                     new SqlParameter("@dataTermino", dataTermino),
                     new SqlParameter("@enderecoId", enderecoId),
@@ -49,8 +56,6 @@ namespace EchoHotel.Data.Repositories
 
 
             return result;
-            //return this.Db.Hotel.SelectMany(h => h.Acomodacoes).
-            //    Where(a => !(dataInicio > a.Reserva.DataTermino && dataTermino < a.Reserva.DataInicio)|| a.Reserva == null);
         }
 
         class Retorno

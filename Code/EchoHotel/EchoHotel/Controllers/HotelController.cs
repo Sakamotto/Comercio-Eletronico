@@ -1,16 +1,16 @@
 ﻿using EchoHotel.Domain.Entities;
 using EchoHotel.Domain.Interfaces.Services;
+using EchoHotel.Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Web;
+using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using EchoHotel.Domain.Integracao;
 
 namespace EchoHotel.Controllers
 {
@@ -124,10 +124,38 @@ namespace EchoHotel.Controllers
             {
 
             }
-            
+
 
             return Request.CreateResponse(HttpStatusCode.OK, new { }, "application/json");
 
+        }
+
+        [Route("ObterCarrosDisponiveis")]
+        [HttpGet]
+        public Response<List<Carro>> ObterCarrosDisponiveis()
+        {
+            HttpClient client = new HttpClient {
+                BaseAddress = new Uri("http://topgearapi.azurewebsites.net/api/")
+            };
+
+            RequestCarrosDisponiveis req = new RequestCarrosDisponiveis
+            {
+                Inicial = new DateTime(2017, 10, 20),
+                Final = new DateTime(2017, 10, 21),
+                AgenciaId = 15,
+                Token = "CorrectHorseBatteryStaple"
+            };
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.PostAsJsonAsync("carro/obterdisponiveis", req).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var result = response.Content.ReadAsAsync<Response<List<Carro>>>().Result;
+                return result;
+            }
+            else return new Response<List<Carro>> { Sucesso = false};
         }
 
         // POST: api/Hotel

@@ -27,10 +27,8 @@ namespace EchoHotel.Controllers
         [HttpPost]
         public object FinalizarCompra(CompraFinalizadaSharedViewModel reservas)
         {
-            //var res = reservas.Content.ReadAsAsync<ReservaSimplificadaShared>().Result;
-            //return new { } ;
             var dataInicio = reservas.reservas.First().DataInicio;
-            return this._reservaService.FinalizarCompra(reservas.reservas, 1, dataInicio, reservas.DataTermino); //[FromUri]CompraFinalizadaSharedViewModel
+            return this._reservaService.FinalizarCompra(reservas.reservas, 1, dataInicio, reservas.DataTermino);
         }
 
         // GET: api/Reserva

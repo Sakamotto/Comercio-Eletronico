@@ -1,0 +1,41 @@
+<!-- Header -->
+<header class="masthead" style="background-color: rgb(24, 188, 156)">
+  <div class="container">
+    <img class="img-fluid" src="../../assets/img/hotel.png" alt="">
+    <div class="intro-text">
+      <span class="name">Echo Hotel</span>
+      <hr class="star-light">
+      <span class="skills">O Melhor lugar para se estar!</span>
+    </div>
+  </div>
+</header>
+
+<section class="container" *ngIf="hoteis">
+
+    <mat-card>
+        <mat-card-title class="titulo">Acomodações em {{params.cidade}} de {{params.dataInicio | date:'dd/MM/yyyy'}} à {{params.dataTermino | date:'dd/MM/yyyy'}} </mat-card-title>
+        <mat-card-content class="demo-basic-list">
+          <mat-grid-list cols="3" [rowHeight]="300">
+            <mat-grid-tile *ngFor="let hotel of hoteis" style="width: 300px; margin-right: 10px">
+              <img style="width: 256px; height: 256px;" src="https://www.iconexperience.com/_img/g_collection_png/standard/256x256/hotel.png">
+              <mat-grid-tile-footer>
+                <h3 mat-line>{{hotel.Nome}}</h3>
+                <span mat-line>Valor: R$ {{hotel.Valor}}</span>
+                <!-- <span mat-line>Capacidade: {{hotel.Capacidade}} pessoas </span> -->
+                <!-- <mat-icon></mat-icon> -->
+                <mat-card-actions>
+                    <mat-checkbox (change)="adicionarAcomodacao(hotel)">Reservar</mat-checkbox>               
+                    <!-- <button mat-raised-button color="accent" (click)="reservarAcomodacao(hotel)">Reservar</button> -->
+                </mat-card-actions>
+              </mat-grid-tile-footer>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card *ngIf="reservas.length > 0">
+      <button mat-raised-button color="primary" (click)="finalizarCompra()" class="center-button">Finalizar Compra</button>
+    </mat-card>
+    
+
+</section>

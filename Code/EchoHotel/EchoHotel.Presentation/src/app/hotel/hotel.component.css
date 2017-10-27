@@ -1,0 +1,15 @@
+.titulo{
+    text-align: center;
+}
+
+.demo-basic-list .mat-grid-tile {
+    background: rgba(24, 188, 156, 1);
+}
+
+.center-button{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 50%;
+    height: 50px;
+}

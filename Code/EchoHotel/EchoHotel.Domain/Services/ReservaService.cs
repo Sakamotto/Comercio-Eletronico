@@ -31,43 +31,51 @@ namespace EchoHotel.Domain.Services
 
         public object FinalizarCompra(List<ReservaSimplificadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino)
         {
+
+            // Validações ...
+            if (dataInicio == null || dataTermino == null)
+            {
+                return new { sucesso = false, mensagem = "As datas não devem estar vazias" };
+            }
+
+            var conflitos = this._repository.GetAll().Where(r => r.AcomodacaoId == reservas.First().AcomodacaoId)
+                .Where(r => r.Conflitante(dataInicio, dataTermino));
+
+            if (conflitos.Count() > 0)
+            {
+                return new { sucesso = false, mensagem = "Já existe uma reserva para essa acomodação na data informada" };
+            }
+
             var compra = new Compra();
             var totalCompra = reservas.Sum(r => r.Valor);
             var reservasAdicionadas = new List<Reserva>();
 
-            //compra.Cliente = _clienteRepository.GetById(clienteId);
             compra.ClienteId = clienteId;
             compra.CodigoCompra = Guid.NewGuid().ToString();
             compra.TotalCompra = totalCompra;
 
             try
             {
-                //this._compraRepository.Add(compra);
                 var compraAdicionada = this._compraRepository.Add(compra);
-                //this._repository.SaveChanges();
 
                 foreach (var reserva in reservas)
                 {
                     var novaReserva = new Reserva();
-                    //novaReserva.Acomodacao = _acomodacaoRepository.GetById(reserva.AcomodacaoId);
                     novaReserva.AcomodacaoId = reserva.AcomodacaoId;
                     novaReserva.DataInicio = dataInicio;
                     novaReserva.DataTermino = dataTermino;
                     novaReserva.Ativa = true;
                     novaReserva.CompraId = compraAdicionada.Id;
-                    //novaReserva.Compra = compraAdicionada;
                     novaReserva.Valor = reserva.Valor;
-
                     var tempReserva = this._repository.Add(novaReserva);
-                    //this._repository.SaveChanges();
                 }
             }
             catch (Exception e)
             {
-                return new { sucesso = false };
+                return new { sucesso = false , mensagem = e.Message };
             }
 
-            return new { sucesso = true };
+            return new { sucesso = true, mensagem = "Reserva efetuada com sucesso!"};
         }
     }
 }
