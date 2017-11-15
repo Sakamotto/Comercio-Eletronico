@@ -15,7 +15,7 @@ namespace EchoHotel.Data.Context
 
         public EchoHotelContext(): base(ConfigurationManager.ConnectionStrings["EchoHotel"].ConnectionString)
         {
-            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.LazyLoadingEnabled = true;
             this.Configuration.ProxyCreationEnabled = false;
         }
 

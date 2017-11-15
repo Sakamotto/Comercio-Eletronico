@@ -78,6 +78,7 @@ namespace EchoHotel.App_Start
             kernel.Bind<IEnderecoService>().To<EnderecoService>();
             kernel.Bind<IReservaService>().To<ReservaService>();
             kernel.Bind<ICompraService>().To<CompraService>();
+            kernel.Bind<IAdicionalService>().To<AdicionalService>();
 
             kernel.Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             kernel.Bind<IClienteRepository>().To<ClienteRepository>();
@@ -86,6 +87,7 @@ namespace EchoHotel.App_Start
             kernel.Bind<IEnderecoRepository>().To<EnderecoRepository>();
             kernel.Bind<IReservaRepository>().To<ReservaRepository>();
             kernel.Bind<ICompraRepository>().To<CompraRepository>();
+            kernel.Bind<IAdicionalRepository>().To<AdicionalRepository>();
         }        
     }
 }

@@ -21,8 +21,8 @@ namespace EchoHotel.Domain.Entities
         public int Tipo { get; set; }
 
         [IgnoreDataMember]
-        public virtual ICollection<Acomodacao> Acomodacoes { get; set; }
+        public ICollection<Acomodacao> Acomodacoes { get; set; }
         [IgnoreDataMember]
-        public virtual ICollection<Hotel> Hoteis { get; set; }
+        public ICollection<Hotel> Hoteis { get; set; }
     }
 }

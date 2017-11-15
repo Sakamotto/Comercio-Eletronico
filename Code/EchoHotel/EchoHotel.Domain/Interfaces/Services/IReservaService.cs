@@ -10,6 +10,6 @@ namespace EchoHotel.Domain.Interfaces.Services
 {
     public interface IReservaService : IServiceBase<Reserva>
     {
-        object FinalizarCompra(List<ReservaSimplificadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino);
+        object FinalizarCompra(CompraFinalizadaSharedViewModel reserva, int clienteId, DateTime dataInicio, DateTime dataTermino);
     }
 }

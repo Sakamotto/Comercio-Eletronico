@@ -14,6 +14,7 @@ namespace EchoHotel.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             CreateMap<ClienteViewModel, Cliente>();
+            CreateMap<AcomodacaoViewModel, Acomodacao>();
         }
 
     }

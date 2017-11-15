@@ -104,5 +104,6 @@ C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Ele
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\bin\pt-br\System.Web.WebPages.Razor.resources.dll
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\obj\Debug\EchoHotel.MVC.csprojResolveAssemblyReference.cache
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\obj\Debug\EchoHotel.MVC.csproj.CoreCompileInputs.cache
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\obj\Debug\EchoHotel.dll
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\obj\Debug\EchoHotel.pdb

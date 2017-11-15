@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Interfaces.Repositories
 {
-    public interface IAdicionalRepository:IRepositoryBase<Adicional>
+    public interface IAdicionalRepository : IRepositoryBase<Adicional>
     {
+        ICollection<Adicional> GetAdicionaisAcomodacao(int id);
     }
 }

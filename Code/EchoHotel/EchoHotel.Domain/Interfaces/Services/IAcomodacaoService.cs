@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace EchoHotel.Domain.Interfaces.Services
 {
-    public interface IAcomodacaoService: IServiceBase<Acomodacao>
+    public interface IAcomodacaoService : IServiceBase<Acomodacao>
     {
+        Acomodacao GetAcomodacao(int id);
     }
 }

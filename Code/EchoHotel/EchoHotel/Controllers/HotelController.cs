@@ -41,7 +41,7 @@ namespace EchoHotel.Controllers
             var hotel = this.hotelService.GetById(id);
             //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, hotel, "application/json");
-        }
+        }        
 
         [Route("GetHoteisPorData")]
         [ActionName("GetHoteisPorData")]
@@ -51,83 +51,6 @@ namespace EchoHotel.Controllers
             var result = this.hotelService.GetHoteisPorData(dataInicio, dataTermino, enderecoId, cidade, guests);
             //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
             return Request.CreateResponse(HttpStatusCode.OK, result, "application/json");
-        }
-
-        [Route("ObterCarros")]
-        [HttpGet]
-        public HttpResponseMessage ObterCarros()
-        {
-            //var req = new
-            //{
-            //    Inicial = new DateTime(2017, 10, 01),
-            //    Final = new DateTime(2017, 10, 15),
-            //    Token = "CorrectHorseBatteryStaple"
-            //};
-
-            //var uri = new Uri("http://www.topgearapi.azurewebsites.net/api/carro");
-            //var cliente = new HttpClient();
-
-            //return await cliente.GetAsync(uri);
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://topgearapi.azurewebsites.net/api/carro");
-
-            var dados = new RequisicaoCarros
-            {
-                Inicial = new DateTime(2017, 10, 13),
-                Final = new DateTime(2017, 10, 15),
-                AgenciaId = 1,
-                Token = "CorrectHorseBatteryStaple"
-            };
-
-            //MemoryStream memmoryStream = new MemoryStream();
-            //BinaryFormatter binayformator = new BinaryFormatter();
-            //binayformator.Serialize(memmoryStream, dados);
-            //string postString = string.Format("Inicial={0}&Final={1}&Token={2}", dados.Inicial, dados.Final, dados.Token);
-
-
-            //request.ContentLength = postString.Length;
-            request.Method = "GET";
-            request.ContentType = "application/json; charset=utf-8";
-            request.Accept = "application/json";
-
-            //StreamWriter requestWriter = new StreamWriter(request.GetRequestStream());
-            //requestWriter.Write(postString);
-            //requestWriter.Close();
-
-            //Stream reqStream = request.GetRequestStream();
-            ////Write the memory stream data into stream object before send it.
-            //byte[] buffer = new byte[memmoryStream.Length];
-            //int count = memmoryStream.Read(buffer, 0, buffer.Length);
-            //reqStream.Write(buffer, 0, buffer.Length);
-
-            try
-            {
-                // Get the response.
-                WebResponse response = request.GetResponse();
-                // Display the status.
-                // Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-                // Get the stream containing content returned by the server.
-                Stream dataStream = response.GetResponseStream();
-                // Open the stream using a StreamReader for easy access.
-                StreamReader reader = new StreamReader(dataStream);
-                // Read the content.
-                //var res = reader.ReadToEnd();
-                string responseFromServer = reader.ReadToEnd();
-                // Display the content.
-                Console.WriteLine(responseFromServer);
-                // Clean up the streams and the response.
-                reader.Close();
-                response.Close();
-                return Request.CreateResponse(HttpStatusCode.OK, responseFromServer, "application/json");
-            }
-            catch (Exception e)
-            {
-
-            }
-
-
-            return Request.CreateResponse(HttpStatusCode.OK, new { }, "application/json");
-
         }
 
         [Route("ObterCarrosDisponiveis")]

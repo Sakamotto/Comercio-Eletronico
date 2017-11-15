@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="EchoHotel-Web.config Connection String" description="EchoHotel A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Server=tcp:echohotel.database.windows.net,1433;Initial Catalog=echohotel;Persist Security Info=False;User ID=echohotelAdmin;Password=Senha@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+  <parameter name="EchoHotel-Web.config Connection String" description="EchoHotel A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=.\SQLEXPRESS;Initial Catalog=EchoHotel;Integrated Security=True;MultipleActiveResultSets=True" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Cristian\\Documents\\IFES\\7º\ Período\\Comércio\ Eletrônico\\Comercio-Eletronico\\Code\\EchoHotel\\EchoHotel\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EchoHotel']/@connectionString" />
   </parameter>
 </parameters>

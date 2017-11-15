@@ -68,6 +68,7 @@
     <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AcomodacaoService.cs" />
+    <Compile Include="Services\AdicionalService.cs" />
     <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\CompraService.cs" />
     <Compile Include="Services\EnderecoService.cs" />

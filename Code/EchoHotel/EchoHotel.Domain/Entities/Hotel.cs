@@ -21,6 +21,7 @@ namespace EchoHotel.Domain.Entities
 
         [MaxLength(500)]
         public string Descricao { get; set; }
+        public string UrlImg { get; set; }
 
         public int EnderecoId { get; set; }
 

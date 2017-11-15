@@ -29,7 +29,7 @@ namespace EchoHotel.Domain.Services
             this._acomodacaoRepository = acomodacaoRepository;
         }
 
-        public object FinalizarCompra(List<ReservaSimplificadaShared> reservas, int clienteId, DateTime dataInicio, DateTime dataTermino)
+        public object FinalizarCompra(CompraFinalizadaSharedViewModel reserva, int clienteId, DateTime dataInicio, DateTime dataTermino)
         {
 
             // Validações ...
@@ -38,44 +38,40 @@ namespace EchoHotel.Domain.Services
                 return new { sucesso = false, mensagem = "As datas não devem estar vazias" };
             }
 
-            var conflitos = this._repository.GetAll().Where(r => r.AcomodacaoId == reservas.First().AcomodacaoId)
-                .Where(r => r.Conflitante(dataInicio, dataTermino));
+            var conflitos = this._repository.GetAll().Where(r => r.AcomodacaoId == reserva.AcomodacaoId)
+                .Where(r => r.TemConflito(dataInicio, dataTermino));
 
             if (conflitos.Count() > 0)
             {
                 return new { sucesso = false, mensagem = "Já existe uma reserva para essa acomodação na data informada" };
             }
-
+            
+            // Cadastros ...
             var compra = new Compra();
-            var totalCompra = reservas.Sum(r => r.Valor);
-            var reservasAdicionadas = new List<Reserva>();
-
             compra.ClienteId = clienteId;
             compra.CodigoCompra = Guid.NewGuid().ToString();
-            compra.TotalCompra = totalCompra;
+            compra.TotalCompra = reserva.Valor;
 
             try
             {
                 var compraAdicionada = this._compraRepository.Add(compra);
+                var novaReserva = new Reserva();
 
-                foreach (var reserva in reservas)
-                {
-                    var novaReserva = new Reserva();
-                    novaReserva.AcomodacaoId = reserva.AcomodacaoId;
-                    novaReserva.DataInicio = dataInicio;
-                    novaReserva.DataTermino = dataTermino;
-                    novaReserva.Ativa = true;
-                    novaReserva.CompraId = compraAdicionada.Id;
-                    novaReserva.Valor = reserva.Valor;
-                    var tempReserva = this._repository.Add(novaReserva);
-                }
+                novaReserva.AcomodacaoId = reserva.AcomodacaoId;
+                novaReserva.DataInicio = dataInicio;
+                novaReserva.DataTermino = dataTermino;
+                novaReserva.Ativa = true;
+                novaReserva.CompraId = compraAdicionada.Id;
+                novaReserva.Valor = reserva.Valor;
+
+                this._repository.Add(novaReserva);
             }
             catch (Exception e)
             {
-                return new { sucesso = false , mensagem = e.Message };
+                return new { sucesso = false, mensagem = e.Message };
             }
 
-            return new { sucesso = true, mensagem = "Reserva efetuada com sucesso!"};
+            return new { sucesso = true, mensagem = "Reserva efetuada com sucesso!" };
         }
     }
 }

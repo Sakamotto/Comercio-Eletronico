@@ -24,6 +24,8 @@ namespace EchoHotel.Domain.Entities
         [Required]
         public int Capacidade { get; set; }
 
+        public string UrlImg { get; set; }
+
         [MaxLength(500)]
         public string Descricao { get; set; }
 

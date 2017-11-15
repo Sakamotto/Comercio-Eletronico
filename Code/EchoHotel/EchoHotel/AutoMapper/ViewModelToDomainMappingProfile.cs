@@ -13,6 +13,7 @@ namespace EchoHotel.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<Cliente, ClienteViewModel>();
+            CreateMap<Acomodacao, AcomodacaoViewModel>();
         }
 
     }

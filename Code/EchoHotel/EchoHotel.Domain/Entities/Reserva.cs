@@ -43,6 +43,14 @@ namespace EchoHotel.Domain.Entities
                 (dataInicio > this.DataInicio && dataTermino > this.DataTermino);
         }
 
+        public bool TemConflito(DateTime dataInicio, DateTime dataTermino)
+        {
+            return !(
+                        ((dataInicio < this.DataInicio) && (dataTermino < this.DataInicio)) ||
+                        (dataInicio > this.DataTermino)
+                    );
+        }
+
 
     }
 }

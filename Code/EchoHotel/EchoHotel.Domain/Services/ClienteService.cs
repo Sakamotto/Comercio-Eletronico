@@ -16,5 +16,37 @@ namespace EchoHotel.Domain.Services
         {
             this._repository = repository;
         }
+
+        public object AutenticarUsuario(string Email, string Senha)
+        {
+            var resultado = this._repository.GetAll().Where(c => c.Email == Email && c.Senha == Senha);
+            return new { retorno = resultado.FirstOrDefault(), sucesso = resultado.Count() > 0 };
+        }
+
+        //public object UsuarioJaExiste(string email)
+        //{
+        //    var erros = this.GetAll().Where(c => c.Email == email);
+        //}
+
+        public object CadastrarUsuario(Cliente cliente)
+        {
+            // verificações
+            var erros = this._repository.GetAll().Where(c => c.Email == cliente.Email);
+
+            if (erros.Count() > 0)
+            {
+                return new { sucesso = false, mensagem = "Este usuário já existe"};
+            }
+
+            if (cliente.Endereco == null)
+            {
+                return new { sucesso = false, mensagem = "Endereço não está preenchido" };
+            }
+
+            this.Add(cliente);
+
+            return new { sucesso = true, mensagem = "Usuário registrado com sucesso" };
+            
+        }
     }
 }
