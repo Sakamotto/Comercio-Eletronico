@@ -1,0 +1,173 @@
+<div class="k2t-body">
+    <div class="k2t-title-bar" style="margin-top: 50px;">
+        <div class="container k2t-wrap">
+            <h1 class="main-title k2t-cf7-title" style="font-size:36px;color:#283c5a;">
+                Reserva de Acomodação
+            </h1>
+        </div>
+    </div>
+    <!-- .k2t-title-bar -->
+    <div class="k2t-content no-sidebar k2t-confirm-content" style="margin-top: 70px">
+        <div class="container k2t-wrap">
+            <main class="k2t-main page">
+                <div class="page-entry">
+                    <!-- <div class="k2t-reservation-confirm">
+                        <div class="k2t-step-f pull-left first">
+                            <div class="k2t-step-done">
+                                <a> 1 </a>
+                            </div>
+                            <p class="k2t-p-done"> Choose Date </p>
+                        </div>
+                        <div class="k2t-step-s pull-left">
+                            <div class="k2t-step-done">
+                                <a> 2 </a>
+                            </div>
+                            <p class="k2t-p-done"> Choose Room </p>
+                        </div>
+                        <div class="k2t-step-f pull-left">
+                            <div class="k2t-step-current k2t-step-done">
+                                <a> 3 </a>
+                            </div>
+                            <p class="k2t-p-current"> Reservation </p>
+                        </div>
+                        <div class="k2t-step-fo pull-left last">
+                            <div class="k2t-next-step k2t-step-done">
+                                <a> 4 </a>
+                            </div>
+                            <p class="k2t-p-next"> Confirmation </p>
+                        </div>
+                    </div> -->
+                    <div class="k2t-step3-confirm w100 pull-left">
+                        <div class="k2t-field-info k2t-info-user pull-left">
+
+                            <div *ngIf="!logado" class="k2t-field-button pull-left w100">
+                                <a class="pull-left k2t-field-booknow" style="cursor: pointer" rel="modal:open" href="#login">Login</a>
+                                <a class="pull-right k2t-field-booknow" style="cursor: pointer" rel="modal:open" href="#registrar">Registrar</a>
+                            </div>
+
+                            <div *ngIf="logado">
+                                <p class="k2t-title-grfield" style="text-align: center"> Informações de Pagamento</p>
+                                <div class="k2t-gr1-field pull-left">
+                                    <!-- <div class="div-border"><input type="text" placeholder="Nome*" /></div>
+                                    <div class="div-border"><input type="text" placeholder="Email*" /></div>
+                                    <div class="div-border"><input type="text" placeholder="CEP*" /></div>
+                                    <div class="div-border"><input type="text" placeholder="Rua" /></div> -->
+                                    <div class="div-border"><input type="text" placeholder="Nº do Cartão" /></div>
+                                    <div class="div-border"><input type="text" placeholder="Validade" /></div>
+                                </div>
+                                <div class="k2t-gr2-field pull-right">
+                                    <!-- <div class="div-border"><input type="text" placeholder="Sobrenome*" /></div>
+                                    <div class="div-border"><input type="text" placeholder="Telefone*" /></div>
+                                    <div class="div-border"><input type="text" placeholder="Código Promocional" /></div>
+                                    <div class="div-border"><input type="text" placeholder="Cidade" /></div> -->
+                                    <div class="div-border"><input type="text" placeholder="Nome impresso no cartão" /></div>
+                                    <div class="div-border"><input type="text" placeholder="Dígito Verificador" /></div>
+                                </div>
+                                <div class="div-border"><textarea placeholder="Special Requirements"></textarea></div>
+                                <div class="k2t-field-button pull-left w100">
+                                    <a class="pull-left k2t-field-backstep" (click)="voltar()" style="cursor: pointer"> <i class="zmdi zmdi-long-arrow-left"></i> &nbsp; Voltar </a>
+                                    <a class="pull-right k2t-field-booknow" (click)="confirmarReserva()" style="cursor: pointer">Confirmar</a>
+                                </div>
+                                <p class="k2t-title-grfield w100 pull-left" style="text-align: center"> Escolha a Forma de Pagamento</p>
+                                <div class="w100 pull-left k2t-payment">
+                                    <a href="javascript:void(0)" class="col-3"><img src="assets/images/upload/paypal.png" alt="paypal" /></a>
+                                    <a href="javascript:void(0)" class="col-3"><img src="assets/images/upload/payoneer.png" alt="payoneer" /></a>
+                                    <a href="javascript:void(0)" class="col-3"><img src="assets/images/upload/visa.png" alt="visa" /></a>
+                                    <a href="javascript:void(0)" class="col-3"><img src="assets/images/upload/mastercard.png" alt="mastercard" /></a>
+                                </div>
+                                <a href="reservation-confirm.html" class="pull-left w100 k2t-pay-now"> Pay Now </a>
+                            </div>
+                        </div>
+                        <div class="k2t-branch-confirm k2t-step3-right pull-right">
+                            <p class="title-confirm">Dados da Reserva</p>
+                            <p class="sub-title-confirm">Por favor, verifique sua reserva novamente</p>
+                            <div class="k2t-entry-cr">
+                                <p class="k2t-title-col"> {{acomodacao?.Hotel.Nome}} </p>
+                                <p class="k2t-confirm-p"> 
+                                    <span class="k2t-col-f"> Check In: </span>
+                                    <span class="k2t-col-s"> {{params.dataInicio | date:"dd/MM/yyyy"}} </span>
+                                </p>
+                                <p class="k2t-confirm-p">
+                                    <span class="k2t-col-f"> Check Out: </span>
+                                    <span class="k2t-col-s"> {{params.dataTermino | date:"dd/MM/yyyy"}} </span>
+                                </p>
+                                <p class="k2t-confirm-p"> 
+                                    <span class="k2t-col-f"> Visitantes: </span>
+                                    <span class="k2t-col-s"> {{params.guests}} </span>
+                                </p>
+                            </div>
+                            <div class="k2t-entry-cr k2t-entry-sub">
+                                <p class="k2t-confirm-p k2t-total"> 
+                                    <span class="k2t-col-total"> Valor </span>
+                                    <span class="k2t-col-price k2t-col-s"> {{acomodacao?.Valor?.toLocaleString("pt")}} </span>
+                                </p>
+                                <!-- <p class="k2t-confirm-p k2t-vat"> 
+                                    <span class="k2t-col-vat"> VAT 10% </span>
+                                    <span class="k2t-col-pvat k2t-col-s"> $ 128 </span>
+                                </p> -->
+                            </div>
+                            <p class="k2t-confirm-p kt2-grand"> 
+                                <span class="k2t-grand-total"> Total Geral </span>
+                                <span class="k2t-col-s"> R$ {{getTotal(acomodacao?.Valor)?.toLocaleString("pt")}} </span>
+                            </p>
+                            <div class="pull-left w100" style="padding:0 23%; margin-top:50px">
+                                <a href="javascript:void(0)" class="k2t-btn-editbooking w100 pull-left">Editar Reservas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none; max-width: 800px">
+    <div class="modal-dialog">
+            <!-- <h1>Registrar</h1><br>
+            <form>
+              <input type="text" [(ngModel)]="cliente.Nome" name="nome" placeholder="Nome*"><br />
+              <input type="text" [(ngModel)]="cliente.Sobrenome" name="sobrenome" placeholder="Sobrenome*"><br />
+              <input type="text" [(ngModel)]="cliente.Email" name="email" placeholder="Email*"><br />
+              <input type="text" [(ngModel)]="cliente.Cpf" name="cpf" placeholder="CPF*"><br />
+              <input type="password" [(ngModel)]="cliente.Senha" name="senha" placeholder="Senha*">
+              <input type="submit" name="registrar" class="login loginmodal-submit" value="Registrar" (click)="registrar()">
+            </form> -->
+
+            <form class="loginmodal-container" style="max-width: none;">
+                <h1>Registrar</h1>
+                <div class="k2t-gr1-field pull-left">
+                    <input type="text" [(ngModel)]="cliente.Nome" name="nome" placeholder="Nome*"><br />
+                    <input type="text" [(ngModel)]="cliente.Sobrenome" name="sobrenome" placeholder="Sobrenome*"><br />
+                    <input type="text" [(ngModel)]="cliente.Email" name="email" placeholder="Email*"><br />
+                    <input type="text" [(ngModel)]="cliente.Cpf" name="cpf" placeholder="CPF*"><br />
+                    <input type="password" [(ngModel)]="cliente.Senha" name="senha" placeholder="Senha*">
+                </div>
+                <div class="k2t-gr2-field pull-right">
+                    <input type="text" [(ngModel)]="cliente.Endereco.Cep" name="cep" placeholder="CEP"><br />
+                    <input type="text" [(ngModel)]="cliente.Endereco.Bairro" name="bairro" placeholder="Bairro">
+                    <input type="text" [(ngModel)]="cliente.Endereco.Cidade" name="cidade" placeholder="Cidade">
+                    <input type="text" [(ngModel)]="cliente.Endereco.Estado" name="estado" placeholder="Estado">
+                    <!-- <input type="text" [(ngModel)]="cliente.Endereco.Uf" name="uf" placeholder="UF"> -->
+                </div>
+                <input type="submit" name="registrar" class="login loginmodal-submit" value="Registrar" (click)="registrar()">
+            </form>
+    </div>
+</div>
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Login</h1><br>
+            <form>
+              <input type="text" [(ngModel)]="cliente.Email" name="email" placeholder="Email"><br />
+              <input type="password" [(ngModel)]="cliente.Senha" name="senha" placeholder="Senha">
+              <input type="submit" name="login" class="login loginmodal-submit" value="Login" (click)="login()">
+              <p *ngIf="sucesso" style="color: green">Login efetuado com sucesso</p>
+              <p *ngIf="erroLogin" style="color: red">Usuário ou senha inválido, tente novamente</p>
+            </form>
+        </div>
+    </div>
+</div>
+  
+  <!-- Link to open the modal -->
+  <!-- <p><a href="#ex1" rel="modal:open">Open Modal</a></p> -->

@@ -1,0 +1,70 @@
+<loading-spinner *ngIf="showSpinner"></loading-spinner>
+<div class="k2t-body" *ngIf="!showSpinner">
+			<div class="k2t-content no-sidebar k2t-room-listing k2t-room-style2">
+				<div class="container k2t-wrap">
+					<!-- Main -->
+					<main class="k2t-main page">
+						<article id="post-1868" class="post-1868 page type-page status-publish hentry">
+							<div class="page-entry">
+								<div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1440555998714" style="box-sizing: border-box;">
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="wpb_wrapper">
+											<div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1440555859553">
+												<div class="wpb_column vc_column_container vc_col-sm-12">
+													<div class="wpb_wrapper">
+														<div id="uTXY49SViN" class="k2t-heading align-center no-img no-border no-subtitle h2 two_dots">
+															<div class="k2t-heading-inner">
+																<div class="text">
+																	<h2 class="h" style="padding-top: 10px"><span>Resultados da Busca</span></h2>
+																</div>
+															</div>
+														</div>
+														<div class="w100 pull-left k2t-bg-title">
+															<img width="70" height="10" src="assets/images/upload/bg-title-bar.png" class="vc_single_image-img attachment-thumbnail" alt="bg-title-bar">
+														</div>
+														<div class="sub-title-room pull-left w100" style="margin-bottom: 20px">
+															Aproveite nossas acomodações!
+														</div>
+														<div class="event-listing-classic columns-3">
+															<div class="group">
+																<div *ngFor="let hotel of hoteis" class="event-classic-item">
+																	<div class="inner-post">
+																		<a href="#" title="Workshop: GCSE Japanese Culture 5">
+																		<img width="1200" height="1200" src="assets/images/upload/h4.jpg" class="attachment-thumb_370x370 wp-post-image" alt="King Suite Room"/></a>
+																		<div class="light-box">
+																		</div>
+																		<div class="info-classic">
+																			<div class="product-price">
+																				<span class="price">
+																				<span class="amount">$&nbsp;{{hotel.Valor}}</span>        							</span>
+																			</div>
+																			<div class="title">
+																				<a href="single-room-gallery.html" title="King Suite Room">
+																				{{hotel.Nome}}</a>
+																			</div>
+																			<div class="classic-read-more">
+																				<a (click)="redirect(hotel.AcomodacaoId)" style="cursor: pointer">Detalhes <i class="fa fa-angle-right"></i></a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- .page-entry -->
+									</div>
+								</div>
+							</div>
+						</article>
+						<!-- #post-## -->
+						<div class="clear"></div>
+					</main>
+					<!-- Sidebar -->
+				</div>
+				<!-- k2t-booking form -->
+			</div>
+			<!-- .k2t-content -->
+		</div>

@@ -38,7 +38,7 @@ namespace EchoHotel.Controllers
         public object FinalizarCompra(CompraFinalizadaSharedViewModel reserva)
         {
             var dataInicio = reserva.DataInicio;
-            return this._reservaService.FinalizarCompra(reserva, 1, dataInicio, reserva.DataTermino);
+            return this._reservaService.FinalizarCompra(reserva, reserva.ClienteId, dataInicio, reserva.DataTermino);
         }
 
         [Route("ObterCarrosDisponiveis")]

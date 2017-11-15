@@ -31,7 +31,7 @@ namespace EchoHotel.Domain.Services
 
         public object FinalizarCompra(CompraFinalizadaSharedViewModel reserva, int clienteId, DateTime dataInicio, DateTime dataTermino)
         {
-
+            Reserva novaReserva;
             // Validações ...
             if (dataInicio == null || dataTermino == null)
             {
@@ -55,7 +55,7 @@ namespace EchoHotel.Domain.Services
             try
             {
                 var compraAdicionada = this._compraRepository.Add(compra);
-                var novaReserva = new Reserva();
+                novaReserva = new Reserva();
 
                 novaReserva.AcomodacaoId = reserva.AcomodacaoId;
                 novaReserva.DataInicio = dataInicio;
@@ -71,7 +71,7 @@ namespace EchoHotel.Domain.Services
                 return new { sucesso = false, mensagem = e.Message };
             }
 
-            return new { sucesso = true, mensagem = "Reserva efetuada com sucesso!" };
+            return new { sucesso = true, mensagem = "Reserva efetuada com sucesso!", retorno = novaReserva };
         }
     }
 }
