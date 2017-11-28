@@ -106,3 +106,4 @@ C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Ele
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\bin\System.Web.Cors.dll
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\bin\System.Web.Http.Cors.dll
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\bin\System.Web.Http.Cors.xml
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel\obj\Release\EchoHotel.MVC.csproj.CoreCompileInputs.cache

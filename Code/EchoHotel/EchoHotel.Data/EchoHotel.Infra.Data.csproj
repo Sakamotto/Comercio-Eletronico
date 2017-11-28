@@ -73,6 +73,10 @@
     <Compile Include="Migrations\201711032217372_AlteracaoNoModelo.Designer.cs">
       <DependentUpon>201711032217372_AlteracaoNoModelo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711171250468_SiglaEndereco.cs" />
+    <Compile Include="Migrations\201711171250468_SiglaEndereco.Designer.cs">
+      <DependentUpon>201711171250468_SiglaEndereco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AcomodacaoRepository.cs" />
@@ -115,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711032217372_AlteracaoNoModelo.resx">
       <DependentUpon>201711032217372_AlteracaoNoModelo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711171250468_SiglaEndereco.resx">
+      <DependentUpon>201711171250468_SiglaEndereco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

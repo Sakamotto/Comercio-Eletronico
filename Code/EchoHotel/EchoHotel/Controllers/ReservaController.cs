@@ -1,7 +1,9 @@
-﻿using EchoHotel.Domain.Entities;
+﻿using AutoMapper;
+using EchoHotel.Domain.Entities;
 using EchoHotel.Domain.Integracao;
 using EchoHotel.Domain.Interfaces.Services;
 using EchoHotel.Domain.Shared;
+using EchoHotel.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +43,14 @@ namespace EchoHotel.Controllers
             return this._reservaService.FinalizarCompra(reserva, reserva.ClienteId, dataInicio, reserva.DataTermino);
         }
 
+        [Route("FinalizarCompra2")]
+        [HttpPost]
+        public object FinalizarCompra2(CompraFinalizadaSharedViewModel reserva)
+        {
+            var dataInicio = reserva.DataInicio;
+            return this._reservaService.FinalizarCompra2(reserva, reserva.ClienteId, dataInicio, reserva.DataTermino);
+        }
+
         [Route("ObterCarrosDisponiveis")]
         [HttpGet]
         public Response<List<Carro>> ObterCarrosDisponiveis(DateTime dataInicio, DateTime dataTermino)
@@ -74,6 +84,14 @@ namespace EchoHotel.Controllers
         public IEnumerable<Reserva> Get()
         {
             return this._reservaService.GetAll();
+        }
+
+        // GET: api/Reserva/5
+        [Route("GetAllFromCliente/{clienteId}")]
+        public List<ReservaViewModel> GetAllFromCliente(int clienteId)
+        {
+            var retorno = Mapper.Map<List<ReservaViewModel>>(this._reservaService.GetAllFromCliente(clienteId));
+            return retorno;
         }
 
         // GET: api/Reserva/5

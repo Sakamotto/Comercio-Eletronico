@@ -3,6 +3,7 @@ using EchoHotel.Domain.Interfaces.Repositories;
 using EchoHotel.Domain.Shared;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,6 +66,23 @@ namespace EchoHotel.Data.Repositories
             }
 
             return new {sucesso = true};
+        }
+
+        public List<Reserva> GetAllFromCliente(int clienteId)
+        {
+            List<Reserva> res = this.GetContext().Database.SqlQuery<Reserva>(@"
+                        SELECT r.Id, c.Id as CompraId, AcomodacaoId, ClienteId, DataInicio,
+		                        DataTermino, h.Nome as NomeHotel, h.UrlImg as UrlImgHotel,
+		                        a.UrlImg as UrlImgAcomodacao, a.Valor, TotalCompra
+                        FROM Reserva r
+                        inner join Compra c ON(r.CompraId = c.Id)
+                        inner join Cliente cl ON(c.ClienteId = cl.Id)
+                        inner join Acomodacao a ON(a.Id = r.AcomodacaoId)
+                        inner join Hotel h ON(h.Id = a.HotelId)
+                        WHERE cl.Id = @clienteId", 
+                        new SqlParameter("@clienteId", clienteId)).ToList();
+
+            return res;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace EchoHotel.Domain.Shared
         public int AcomodacaoId { get; set; }
         public decimal Valor { get; set; }
         public string CodigoLocacao { get; set; }
+        public int? CarroId { get; set; }
         //public List<ReservaSimplificadaShared> reservas { get; set; }
     }
 }

@@ -3,3 +3,4 @@ C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Ele
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Domain\obj\Release\EchoHotel.Domain.csprojResolveAssemblyReference.cache
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Domain\obj\Release\EchoHotel.Domain.dll
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Domain\obj\Release\EchoHotel.Domain.pdb
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Domain\obj\Release\EchoHotel.Domain.csproj.CoreCompileInputs.cache

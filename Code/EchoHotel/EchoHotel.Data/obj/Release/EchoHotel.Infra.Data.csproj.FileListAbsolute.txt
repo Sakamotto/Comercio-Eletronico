@@ -16,3 +16,6 @@ C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Ele
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Release\EchoHotel.Data.Migrations.CamposAdicionais.resources
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Release\EchoHotel.Data.Migrations.NullReservaIdEmAcomodacao.resources
 C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Release\EchoHotel.Data.Migrations.RemocaoPropHotelAcomodacao.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Release\EchoHotel.Data.Migrations.AlteracaoNoModelo.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Release\EchoHotel.Data.Migrations.SiglaEndereco.resources
+C:\Users\Cristian\Documents\IFES\7º Período\Comércio Eletrônico\Comercio-Eletronico\Code\EchoHotel\EchoHotel.Data\obj\Release\EchoHotel.Infra.Data.csproj.CoreCompileInputs.cache

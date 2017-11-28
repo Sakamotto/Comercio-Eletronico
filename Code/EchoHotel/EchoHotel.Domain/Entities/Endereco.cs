@@ -22,6 +22,9 @@ namespace EchoHotel.Domain.Entities
 
         [Required]
         public string Cidade { get; set; }
+
+        public string Sigla { get; set; }
+
         [Required]
         public string Estado { get; set; }
 

@@ -15,6 +15,7 @@ namespace EchoHotel.AutoMapper
         {
             CreateMap<ClienteViewModel, Cliente>();
             CreateMap<AcomodacaoViewModel, Acomodacao>();
+            CreateMap<ReservaViewModel, Reserva>();
         }
 
     }

@@ -22,5 +22,10 @@ namespace EchoHotel.Domain.Services
         {
             return this.hotelRepository.GetHoteisPorData(dataInicio, dataTermino, enderecoId, cidade, guests);
         }
+
+        public object GetHoteisPorDataLocal(DateTime dataInicio, DateTime dataTermino, string sigla, int guests)
+        {
+            return this.hotelRepository.GetHoteisPorDataLocal(dataInicio, dataTermino, sigla, guests);
+        }
     }
 }

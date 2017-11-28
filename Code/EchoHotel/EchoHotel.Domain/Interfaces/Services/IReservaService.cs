@@ -11,5 +11,7 @@ namespace EchoHotel.Domain.Interfaces.Services
     public interface IReservaService : IServiceBase<Reserva>
     {
         object FinalizarCompra(CompraFinalizadaSharedViewModel reserva, int clienteId, DateTime dataInicio, DateTime dataTermino);
+        object FinalizarCompra2(CompraFinalizadaSharedViewModel reserva, int clienteId, DateTime dataInicio, DateTime dataTermino);
+        List<Reserva> GetAllFromCliente(int clienteId);
     }
 }

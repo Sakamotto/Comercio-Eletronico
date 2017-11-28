@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using EchoHotel.Domain.Integracao;
+using EchoHotel.Domain.Util;
 
 namespace EchoHotel.Controllers
 {
@@ -49,7 +50,17 @@ namespace EchoHotel.Controllers
         public HttpResponseMessage GetHoteisPorData(DateTime dataInicio, DateTime dataTermino, int? enderecoId, string cidade, int guests)
         {
             var result = this.hotelService.GetHoteisPorData(dataInicio, dataTermino, enderecoId, cidade, guests);
+            //EmailService email = new EmailService();
+            //email.SendMail("");
             //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            return Request.CreateResponse(HttpStatusCode.OK, result, "application/json");
+        }
+
+        [Route("GetHoteisPorDataLocal")]
+        [HttpGet]
+        public HttpResponseMessage GetHoteisPorDataLocal(DateTime dataInicio, DateTime dataTermino, string sigla, int guests)
+        {
+            var result = this.hotelService.GetHoteisPorDataLocal(dataInicio, dataTermino, sigla, guests);
             return Request.CreateResponse(HttpStatusCode.OK, result, "application/json");
         }
 
@@ -80,6 +91,27 @@ namespace EchoHotel.Controllers
             }
             else return new Response<List<Carro>> { Sucesso = false};
         }
+
+        [Route("GetCarro/{id}")]
+        [HttpGet]
+        public Response<Carro> GetCarro(int id)
+        {
+            HttpClient client = new HttpClient
+            {
+                BaseAddress = new Uri("http://topgearapi.azurewebsites.net/api/" + $"carro/porid/{id}")
+            };
+
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var result = response.Content.ReadAsAsync<Response<Carro>>().Result;
+                return result;
+            }
+            else return new Response<Carro> { Sucesso = false };
+        }
+
 
         // POST: api/Hotel
         public void Post([FromBody]Hotel hotel)
